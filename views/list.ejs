@@ -83,7 +83,7 @@
   </form>
 
   <% inventory.forEach(function(car){ %>
-    <form action="/edit/<%= car.id%>" method="post">
+    <form action="/edit/<%= car._id%>" method="post">
     <% if(car.rented){ %>
       <div class="notavail">
     <% }else{ %>
@@ -97,14 +97,14 @@
 
     </div>
 
-    <% if(car.rented){ %>
+    <!-- <% if(car.rented){ %>
       From: <%= car.rentedFrom%><br>
       To: <%= car.rentedTo%><br>
       Number of days rented: <%= car.history.numofdays%><br>
       Miles Driven: <%= car.history.miles%><br>
       Total Price: $<%= car.history.totalprice%><br>
       Total Price w/vat: $<%= car.history.totalprice_vat%><br>
-    <% } %>
+    <% } %> -->
     <br>
     <button type='submit' class="btn btn-secondary">Edit car</button>
     </form>
