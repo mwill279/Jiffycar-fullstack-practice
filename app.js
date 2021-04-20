@@ -43,15 +43,10 @@ const carSchema = new mongoose.Schema({
   }
 });
 
-// const historySchema = new mongoose.Schema({
-//
-// });
-
 /**
  * Mongoose Models
  */
 const Car = mongoose.model("Car", carSchema);
-// const History = mongoose.model("History", historySchema);
 
 
 var today = new Date();
