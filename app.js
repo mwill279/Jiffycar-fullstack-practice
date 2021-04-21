@@ -162,7 +162,7 @@ app.post("/change/:id", function(req, res) {
 });
 
 app.all("/contact", function(req, res) {
-  res.sendFile(__dirname + "/contactme.html");
+  res.sendFile(__dirname + "/public/html/contactme.html");
 });
 
 app.listen(3000, function(req, res) {
