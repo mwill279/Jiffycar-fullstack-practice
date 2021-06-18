@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 
+const port = 3000;
+
 /**
  * initialize and customize the app
  */
@@ -68,6 +70,13 @@ app.route("/")
     Car.find({}, function(err, inventory) {
       res.render("list", {inventory: inventory});
     });
+  });
+
+
+
+  app.route("/newcar")
+  .get(function(req, res){
+    res.sendFile(__dirname + "/public/html/addcar.html")
   })
 
   .post(function(req, res) {
@@ -165,6 +174,6 @@ app.all("/contact", function(req, res) {
   res.sendFile(__dirname + "/public/html/contactme.html");
 });
 
-app.listen(3000, function(req, res) {
-  console.log(today.toLocaleDateString("en-US", options) + " - Server is running on port 3000!");
+app.listen(port, function(req, res) {
+  console.log(today.toLocaleDateString("en-US", options) + " - Server is running on port %d!", port);
 });
