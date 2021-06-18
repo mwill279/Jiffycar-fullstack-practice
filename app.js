@@ -110,7 +110,7 @@ app.route("/")
     res.redirect("/");
   });
 
-app.post("/edit/:id", function(req, res) {
+app.get("/edit/:id", function(req, res) {
   Car.findById(req.params.id, function(err, car) {
     res.render("edit", {car: car});
   });
@@ -173,6 +173,13 @@ app.post("/change/:id", function(req, res) {
 app.all("/contact", function(req, res) {
   res.sendFile(__dirname + "/public/html/contactme.html");
 });
+
+app.route("/history/:id")
+  .get(function(req, res){
+    Car.findById({_id: req.params.id}, function(err, car_history){
+      res.render("history", {temp_history: car_history.history}) 
+    });
+  });
 
 app.listen(port, function(req, res) {
   console.log(today.toLocaleDateString("en-US", options) + " - Server is running on port %d!", port);
